@@ -17,12 +17,30 @@ function playRound(playerSelection, computerSelection) {
     }
  }
 
-function game(playRound) {
-    for (let i = 1; i < 5; i++) {
+ let playerScore = 0;
+ let computerScore = 0;
 
-    }
+function game(playRound) {
+    for (let i = 1; i < 6; i++) {
+      const playerSelection = prompt(`Let's start round ${i}: Choose Rock, Paper, Scissors`).toLocaleLowerCase();
+      const computerSelection = computerPlay();
+      const result = (playRound(playerSelection, computerSelection));
+      console.log(`Round ${i}: ${result}`);
+      if (result.includes("win")) {
+         playerScore++;
+      } else if (result.includes("lose")) {
+         computerScore++;
+      } 
+
+    };
+
+   if (playerScore > computerScore) {
+      console.log(`You win! your score is: ${playerScore} and computer score is: ${computerScore}`);
+   } else if (playerScore < computerScore) {
+      console.log(`You lose! your score is: ${playerScore} and computer score is: ${computerScore}`);
+   } else {
+      console.log(`It's a Tie! your score is: ${playerScore} and computer score is: ${computerScore}`);
+   };
 }
 
-const playerSelection = prompt("Let's start the game, you can choose 'Rock, Paper, Scissors'").toLocaleLowerCase();
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection))
+game(playRound)
