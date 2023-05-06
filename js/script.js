@@ -22,7 +22,7 @@ function playRound(playerSelection, computerSelection) {
 
 function game(playRound) {
     for (let i = 1; i < 6; i++) {
-      const playerSelection = prompt(`Let's start round ${i}: Choose Rock, Paper, Scissors`).toLocaleLowerCase();
+      const playerSelection = prompt(`Let's start round ${i}: Choose Rock, Paper, Scissors`).toLocaleLowerCase().trim();
       const computerSelection = computerPlay();
       const result = (playRound(playerSelection, computerSelection));
       console.log(`Round ${i}: ${result}`);
