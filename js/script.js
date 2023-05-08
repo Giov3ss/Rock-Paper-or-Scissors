@@ -47,6 +47,16 @@ function displayRules() {
    alert(rulesMessage);
  }
 
+function displayResult(playerName) {
+  if (playerScore > computerScore) {
+    console.log(`Congratulations, ${playerName}! You win! Your score is: ${playerScore} and computer score is: ${computerScore}`);
+  } else if (playerScore < computerScore) {
+    console.log(`Sorry, ${playerName}. You lose! Your score is: ${playerScore} and computer score is: ${computerScore}`);
+  } else {
+    console.log(`It's a tie, ${playerName}! Your score is: ${playerScore} and computer score is: ${computerScore}`);
+  }
+}
+
 function game() {
 
    let playAgain = true;
@@ -88,14 +98,8 @@ function game() {
       }
     }
 
-    if (playerScore > computerScore) {
-      console.log(`Congratulations, ${playerName}! You win! Your score is: ${playerScore} and computer score is: ${computerScore}`);
-    } else if (playerScore < computerScore) {
-      console.log(`Sorry, ${playerName}. You lose! Your score is: ${playerScore} and computer score is: ${computerScore}`);
-    } else {
-      console.log(`It's a tie, ${playerName}! Your score is: ${playerScore} and computer score is: ${computerScore}`);
-    }
-
+    displayResult(playerName);
+    
     playAgain = confirm('Do you want to play again?');
   }
 
